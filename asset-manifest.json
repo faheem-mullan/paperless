@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/VitaResume/static/css/main.0186dc8f.css",
-    "main.js": "/VitaResume/static/js/main.1278b2cd.js",
-    "static/js/977.e90af6e1.chunk.js": "/VitaResume/static/js/977.e90af6e1.chunk.js",
-    "static/js/455.ba489260.chunk.js": "/VitaResume/static/js/455.ba489260.chunk.js",
-    "static/js/453.91ec086e.chunk.js": "/VitaResume/static/js/453.91ec086e.chunk.js",
-    "index.html": "/VitaResume/index.html",
-    "main.0186dc8f.css.map": "/VitaResume/static/css/main.0186dc8f.css.map",
-    "main.1278b2cd.js.map": "/VitaResume/static/js/main.1278b2cd.js.map",
-    "977.e90af6e1.chunk.js.map": "/VitaResume/static/js/977.e90af6e1.chunk.js.map",
-    "455.ba489260.chunk.js.map": "/VitaResume/static/js/455.ba489260.chunk.js.map",
-    "453.91ec086e.chunk.js.map": "/VitaResume/static/js/453.91ec086e.chunk.js.map"
+    "main.css": "/Paperless/static/css/main.0186dc8f.css",
+    "main.js": "/Paperless/static/js/main.261e7e1e.js",
+    "static/js/977.1ed5ed14.chunk.js": "/Paperless/static/js/977.1ed5ed14.chunk.js",
+    "static/js/455.3b367450.chunk.js": "/Paperless/static/js/455.3b367450.chunk.js",
+    "static/js/453.92a227dc.chunk.js": "/Paperless/static/js/453.92a227dc.chunk.js",
+    "index.html": "/Paperless/index.html",
+    "main.0186dc8f.css.map": "/Paperless/static/css/main.0186dc8f.css.map",
+    "main.261e7e1e.js.map": "/Paperless/static/js/main.261e7e1e.js.map",
+    "977.1ed5ed14.chunk.js.map": "/Paperless/static/js/977.1ed5ed14.chunk.js.map",
+    "455.3b367450.chunk.js.map": "/Paperless/static/js/455.3b367450.chunk.js.map",
+    "453.92a227dc.chunk.js.map": "/Paperless/static/js/453.92a227dc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0186dc8f.css",
-    "static/js/main.1278b2cd.js"
+    "static/js/main.261e7e1e.js"
   ]
 }

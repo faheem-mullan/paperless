@@ -1,37 +1,38 @@
-# HackerResume v1 💻✨
+# Paperless 📝✨
 
-**Build ATS-friendly resumes that get you hired.**  
-Auto-generate sleek, professional resumes with live preview, themes, and PDF export.  
+**Build clean, ATS-friendly resumes that get noticed.**  
+Auto-generate professional resumes with live preview, and export to PDF.
 
 ---
 
 ## 🚀 What is this?
 
-HackerResume is a React app that helps you create resumes designed to pass Applicant Tracking Systems (ATS) — the software recruiters use to filter resumes.  
-No more generic templates! Build your resume live, see instant preview, and export a clean PDF that stands out in the pile.
+**Paperless** is a React-based resume builder tailored to work with Applicant Tracking Systems (ATS).  
+Forget fancy templates — focus on clarity and structure that recruiters actually read.
 
 ---
 
 ## 🎯 Features
 
-- Live resume form with instant preview  
-- Add your name, job title, and skills  
-- ATS-optimized resume format  
-- Multiple themes and light/dark mode (coming soon)  
-- PDF export of your resume (coming soon)  
+- Live form with instant resume preview  
+- Add name, title, skills, contact, projects, education, experience  
+- Export resume to clean PDF (coming soon)  
+- ATS-optimized layout  
+- Light/dark mode toggle (coming soon)
 
 ---
 
-## 💡 Why HackerResume?
+## 💡 Why Paperless?
 
-Most resume builders create flashy resumes that ATS bots can’t read properly. HackerResume focuses on **clarity, simplicity, and ATS-friendliness** to get your resume in front of real humans.
+Because most resumes never reach recruiters due to bad formatting.  
+Paperless gives you structure, not just style — made by a developer for developers.
 
 ---
 
-## 🛠️ How to run locally
+## 🛠️ How to Run Locally
 
-1. Clone the repo  
-   ```bash
-   git clone https://github.com/your-username/hacker-resume.git
-   cd hacker-resume
-
+```bash
+git clone https://github.com/your-username/paperless.git
+cd paperless
+npm install
+npm start

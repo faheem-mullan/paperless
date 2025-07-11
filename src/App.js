@@ -3,6 +3,8 @@ import ResumeForm from './components/ResumeForm';
 import ProjectForm from './components/ProjectForm';
 import ExperienceForm from './components/ExperienceForm';
 import EducationForm from './components/EducationForm';
+import DownloadButton from './components/DownloadButton';
+
 
 import './App.css';
 import jsPDF from 'jspdf';
@@ -88,99 +90,100 @@ function App() {
   };
 
   return (
-    <div className={`resume-container ${darkMode ? 'dark' : ''}`}>
-      
-      <div className="top-bar">
-        <button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</button>
-      </div>
+    <>
+      <div className={`resume-container ${darkMode ? 'dark' : ''}`}>
+        <div className="top-bar">
+          <button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</button>
+        </div>
 
-  
-      <div className="main-content">
-       
-        <div id="resume-preview" className="preview-section">
-          <div style={{ padding: '20px' }}>
-            <h2 id="resume-title">Resume Preview</h2>
-            {profileImage && <img src={profileImage} alt="Profile" className="profile-image" />}
-            <h3>{name || 'Your Name'}</h3>
-            <p><strong>{job || 'Your Job Title'}</strong></p>
+        <div className="main-content">
+          {/* ===== RESUME PREVIEW ===== */}
+          <div id="resume-preview" className="preview-section">
+            <div style={{ padding: '20px' }}>
+              <h2 id="resume-title">Resume Preview</h2>
+              {profileImage && <img src={profileImage} alt="Profile" className="profile-image" />}
+              <h3>{name || 'Your Name'}</h3>
+              <p><strong>{job || 'Your Job Title'}</strong></p>
 
-            <div style={{ marginBottom: '12px' }}>
-              <p>Email: {contact.email}</p>
-              <p>Phone: {contact.phone}</p>
-              <p>LinkedIn: {contact.linkedin}</p>
-              <p>GitHub: {contact.github}</p>
-            </div>
+              <div style={{ marginBottom: '12px' }}>
+                <p>Email: {contact.email}</p>
+                <p>Phone: {contact.phone}</p>
+                <p>LinkedIn: {contact.linkedin}</p>
+                <p>GitHub: {contact.github}</p>
+              </div>
 
-            <div>
-              <strong>Skills:</strong>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '8px' }}>
-                {skills.split(',').map((skill, idx) => (
-                  <span key={idx} className="skill-badge">{skill.trim()}</span>
+              <div>
+                <strong>Skills:</strong>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '8px' }}>
+                  {skills.split(',').map((skill, idx) => (
+                    <span key={idx} className="skill-badge">{skill.trim()}</span>
+                  ))}
+                </div>
+              </div>
+
+              <p>{summary || 'Write a short summary about yourself...'}</p>
+
+              <div className="section-card resume-section">
+                <h3>Education</h3>
+                {education.map((edu, index) => (
+                  <p key={index}><strong>{edu.degree || 'Degree'}</strong> at {edu.school || 'School'} ({edu.year || 'Year'})</p>
                 ))}
               </div>
-            </div>
 
-            <p>{summary || 'Write a short summary about yourself...'}</p>
+              <div className="section-card resume-section">
+                <h3>Work Experience</h3>
+                {experience.map((exp, index) => (
+                  <div key={index} style={{ marginBottom: '12px' }}>
+                    <p><strong>{exp.title || 'Job Title'}</strong> at {exp.company || 'Company'} ({exp.year || 'Year'})</p>
+                    <p>{exp.description || 'Work description here...'}</p>
+                  </div>
+                ))}
+              </div>
 
-            <div className="section-card resume-section">
-              <h3>Education</h3>
-              {education.map((edu, index) => (
-                <p key={index}><strong>{edu.degree || 'Degree'}</strong> at {edu.school || 'School'} ({edu.year || 'Year'})</p>
-              ))}
-            </div>
+              <div className="section-card resume-section">
+                <h3>Projects</h3>
+                {projects.map((proj, index) => (
+                  <div key={index} style={{ marginBottom: '12px' }}>
+                    <strong>{proj.name || 'Project Name'}</strong>
+                    {proj.link && <> – <a href={proj.link} target="_blank" rel="noopener noreferrer">{proj.link}</a></>}
+                    <p>{proj.description || 'Project description goes here...'}</p>
+                  </div>
+                ))}
+              </div>
 
-            <div className="section-card resume-section">
-              <h3>Work Experience</h3>
-              {experience.map((exp, index) => (
-                <div key={index} style={{ marginBottom: '12px' }}>
-                  <p><strong>{exp.title || 'Job Title'}</strong> at {exp.company || 'Company'} ({exp.year || 'Year'})</p>
-                  <p>{exp.description || 'Work description here...'}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="section-card resume-section">
-              <h3>Projects</h3>
-              {projects.map((proj, index) => (
-                <div key={index} style={{ marginBottom: '12px' }}>
-                  <strong>{proj.name || 'Project Name'}</strong>
-                  {proj.link && <> – <a href={proj.link} target="_blank" rel="noopener noreferrer">{proj.link}</a></>}
-                  <p>{proj.description || 'Project description goes here...'}</p>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ textAlign: 'center', marginTop: '20px' }}>
-              <button id="download-btn" onClick={handleDownloadPDF}>Download PDF</button>
+              <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                <button id="download-btn" onClick={handleDownloadPDF}>Download PDF</button>
+              </div>
             </div>
           </div>
-        </div>
 
-      
-        <div className="form-wrapper">
-          <ResumeForm
-            name={name}
-            setName={setName}
-            job={job}
-            setJob={setJob}
-            skills={skills}
-            setSkills={setSkills}
-            summary={summary}
-            setSummary={setSummary}
-            contact={contact}
-            setContact={setContact}
-            handleImageUpload={handleImageUpload}
-          />
-          <EducationForm education={education} setEducation={setEducation} />
-          <ExperienceForm experience={experience} setExperience={setExperience} />
-          <ProjectForm projects={projects} setProjects={setProjects} />
+          {/* ===== FORM WRAPPER ===== */}
+          <div className="form-wrapper">
+            <ResumeForm
+              name={name}
+              setName={setName}
+              job={job}
+              setJob={setJob}
+              skills={skills}
+              setSkills={setSkills}
+              summary={summary}
+              setSummary={setSummary}
+              contact={contact}
+              setContact={setContact}
+              handleImageUpload={handleImageUpload}
+            />
+            <EducationForm education={education} setEducation={setEducation} />
+            <ExperienceForm experience={experience} setExperience={setExperience} />
+            <ProjectForm projects={projects} setProjects={setProjects} />
+          </div>
         </div>
-      </div> 
-    </div>
+      </div>
+
+      {/* ✅ Footer must be inside root element */}
+      <footer style={{ textAlign: 'center', marginTop: '50px', fontSize: '0.9rem', color: '#777' }}>
+        © {new Date().getFullYear()} Faheem Sharaf · Built with React ·{' '}
+        <a href="https://github.com/faheem-mullan/VitaResume" target="_blank" rel="noopener noreferrer">Source Code</a>
+      </footer>
+    </>
   );
 }
-
-export default App;
-<footer style={{ textAlign: 'center', marginTop: '50px', fontSize: '0.9rem', color: '#777' }}>
-  © {new Date().getFullYear()} Faheem Sharaf · Built with React · <a href="https://github.com/faheem-mullan/VitaResume" target="_blank" rel="noopener noreferrer">Source Code</a>
-</footer>

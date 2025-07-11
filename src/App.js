@@ -3,7 +3,9 @@ import ResumeForm from './components/ResumeForm';
 import ProjectForm from './components/ProjectForm';
 import ExperienceForm from './components/ExperienceForm';
 import EducationForm from './components/EducationForm';
-import DownloadButton from './components/DownloadButton';
+import { FaEnvelope, FaPhone, FaGithub, FaLinkedin } from 'react-icons/fa';
+
+
 
 
 import './App.css';
@@ -105,12 +107,18 @@ function App() {
               <h3>{name || 'Your Name'}</h3>
               <p><strong>{job || 'Your Job Title'}</strong></p>
 
-              <div style={{ marginBottom: '12px' }}>
-                <p>Email: {contact.email}</p>
-                <p>Phone: {contact.phone}</p>
-                <p>LinkedIn: {contact.linkedin}</p>
-                <p>GitHub: {contact.github}</p>
-              </div>
+             <div className="contact-row">
+              {contact.email && <span><FaEnvelope /> {contact.email}</span>}
+              {contact.phone && <span><FaPhone /> {contact.phone}</span>}
+              {contact.linkedin && (
+                <span><FaLinkedin /> <a href={contact.linkedin} target="_blank" rel="noreferrer">{contact.linkedin}</a></span>
+                )}
+                {contact.github && (
+                  <span><FaGithub /> <a href={contact.github} target="_blank" rel="noreferrer">{contact.github}</a></span>
+                  )}
+                  </div>
+
+
 
               <div>
                 <strong>Skills:</strong>
@@ -179,7 +187,7 @@ function App() {
         </div>
       </div>
 
-      {/* ✅ Footer must be inside root element */}
+      
       <footer style={{ textAlign: 'center', marginTop: '50px', fontSize: '0.9rem', color: '#777' }}>
         © {new Date().getFullYear()} Faheem Sharaf · Built with React ·{' '}
         <a href="https://github.com/faheem-mullan/VitaResume" target="_blank" rel="noopener noreferrer">Source Code</a>
@@ -187,3 +195,5 @@ function App() {
     </>
   );
 }
+export default App;
+

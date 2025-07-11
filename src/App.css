@@ -99,7 +99,7 @@ input[type="file"] {
 }
 
 /* ============ TYPOGRAPHY ============= */
-h2, h3 {
+h1, h2, h3 {
   font-weight: 600;
   margin-bottom: 12px;
 }
@@ -143,6 +143,20 @@ h2, h3 {
   font-size: 0.95rem;
   margin: 2px 0;
   color: #333;
+}
+
+/* ============ CONTACT ROW ============= */
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  color: #000;
+}
+
+.contact-row span {
+  white-space: nowrap;
 }
 
 /* ============ SKILL BADGES ============= */
@@ -252,7 +266,7 @@ button:hover {
 .light-mode-export * {
   background: none !important;
   color: #000 !important;
-  font-weight: 700 !important;
+  font-weight: normal !important;
   opacity: 1 !important;
   box-shadow: none !important;
   border-color: #000 !important;
@@ -275,7 +289,7 @@ button:hover {
 .preview-section .resume-section strong,
 .preview-section .resume-section h3 {
   color: #000 !important;
-  font-weight: 700 !important;
+  font-weight: normal !important;
 }
 
 /* ============ SECTION WRAPPER ============= */
@@ -285,10 +299,7 @@ section {
   line-height: 1.5;
   padding-bottom: 10px;
 }
-.resume-header p {
-  margin: 2px 0;
-  line-height: 1.4;
-}
+
 .preview-section ul {
   margin: 0;
   padding-left: 1.2rem;
